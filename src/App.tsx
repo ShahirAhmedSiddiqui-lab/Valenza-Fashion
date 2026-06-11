@@ -38,11 +38,37 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    const enhancementDelay = window.setTimeout(() => {
-      startTransition(() => setShowSceneEnhancements(true));
-    }, 450);
+    let heroObserver: IntersectionObserver | null = null;
+    let frameId: number | null = null;
 
-    return () => window.clearTimeout(enhancementDelay);
+    const setupHeroObserver = () => {
+      const hero = document.getElementById('hero');
+      if (!hero) {
+        frameId = window.requestAnimationFrame(setupHeroObserver);
+        return;
+      }
+
+      heroObserver = new IntersectionObserver(
+        ([entry]) => {
+          const shouldShow = entry.intersectionRatio < 0.35;
+          startTransition(() => setShowSceneEnhancements(shouldShow));
+        },
+        {
+          threshold: [0.35, 0.5, 0.75, 1],
+        }
+      );
+
+      heroObserver.observe(hero);
+    };
+
+    frameId = window.requestAnimationFrame(setupHeroObserver);
+
+    return () => {
+      if (frameId) {
+        window.cancelAnimationFrame(frameId);
+      }
+      heroObserver?.disconnect();
+    };
   }, []);
 
   useEffect(() => {

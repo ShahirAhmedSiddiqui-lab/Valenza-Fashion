@@ -11,7 +11,7 @@ interface HeroSceneProps {
   onScrollToSection: (id: string) => void;
 }
 
-const HERO_VIDEO_SRC = `${import.meta.env.BASE_URL}media/valenza-hero.mp4`;
+const HERO_VIDEO_SRC = `${import.meta.env.BASE_URL}video/BG%20video%20(1).mp4`;
 
 export default function HeroScene({ onScrollToSection }: HeroSceneProps) {
   const { scrollY } = useScroll();
