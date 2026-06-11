@@ -1,0 +1,6 @@
+{
+  "name": "VALENZA",
+  "description": "Editorial fashion house landing page with cinematic transitions, immersive scroll storytelling, custom WebGL visual effects, and high-fashion interactive galleries.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
