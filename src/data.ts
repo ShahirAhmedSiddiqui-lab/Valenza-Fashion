@@ -12,7 +12,6 @@ import bottomsImg from './assets/images/valenza_bottoms_1781026058825.png';
 import accessoriesImg from './assets/images/valenza_accessories_1781026075076.png';
 import filmThumbnailImg from './assets/images/valenza_philosophy_film_1781026095646.png';
 
-// Map generated image paths
 export const IMAGES = {
   hero: heroImg,
   outerwear: outerwearImg,
